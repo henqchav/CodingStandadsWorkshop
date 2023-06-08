@@ -1,0 +1,15 @@
+Found a 11 line (74 tokens) duplication in the following files: 
+Starting at line 34 of C:\Users\H3nry\Desktop\CodeInspection-main\src\main\java\labcodeinspection\Email.java
+Starting at line 26 of C:\Users\H3nry\Desktop\CodeInspection-main\src\main\java\labcodeinspection\EmailApp.java
+
+	}
+
+	private String randomPassword(int length) {
+		String set = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890#$&@*";
+		char[] password = new char[length];
+		for (int i = 0; i < length; i++) {
+			int rand = (int) (Math.random() * set.length());
+			password[i] = set.charAt(rand);
+		}
+		return new String(password);
+	}

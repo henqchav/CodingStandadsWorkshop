@@ -1,6 +1,9 @@
 // Copyright (C) 2020
 // All rights reserved
+import java.util.Locale;
 import java.util.Scanner;
+import java.util.Locale;
+
 /**
  * the summary for this project is a script maybe to resolve
  * the workshop problem
@@ -63,7 +66,7 @@ public final class CostEstimator {
      *
      * @param args Los argumentos de la línea de comandos.
      */
-    public static void main (final String[] args) {
+    public static void main(final String[] args) {
         Scanner scan = new Scanner(System.in);
         float totalCost = BASE_COST;
 
@@ -71,12 +74,12 @@ public final class CostEstimator {
         System.out.println("¿Ciudad popular? (SI/NO): ");
         String popularCity = scan.next();
 
-        if ("SI".equals(popularCity)) {
+        if ("SI".equals(popularCity.toUpperCase(Locale.ROOT))) {
             System.out.println("Ingrese "
 + "la ciudad de destino (Paris/New York City): ");
             String city = scan.next();
 
-            while (!("Paris".equals(city) || "New York City".equals(city))) {
+            while (!("Paris".equals(city.toUpperCase(Locale.ROOT)) || "New York City".equals(city.toUpperCase(Locale.ROOT)))) {
                 System.out.println("Ingrese una ciudad "
 + "correcta (Paris/New York City): ");
                 city = scan.next();
@@ -123,7 +126,32 @@ public final class CostEstimator {
             totalCost -= DURATION_COST;
         }
 
-        System.out.println("Costo Total: " + totalCost);
+        System.out.println("Costo Total (sin addons): " + totalCost);
+        System.out.println("Seleccione los addons:");
+        System.out.println("1. All-Inclusive Package - $200 por viajero");
+        System.out.println("2. Adventure Activities Package - $150 por viajero");
+        System.out.println("3. Spa and Wellness Package - $100 por viajero");
+        System.out.println("0. No addons");
+        int addonChoice = scan.nextInt();
+        
+        while (addonChoice < 0 || addonChoice > 3) {
+            System.out.println("Seleccione una opcion valida: ");
+            addonChoice = scan.nextInt();
+        }
+        
+        float addonCost = 0;
+        
+        if (addonChoice == 1) {
+            addonCost = 200 * travelers;
+        } else if (addonChoice == 2) {
+            addonCost = 150 * travelers;
+        } else if (addonChoice == 3) {
+            addonCost = 100 * travelers;
+        }
+        
+        totalCost += addonCost;
+
+        System.out.println("Costo Total (con addons): " + totalCost);
         scan.close();
     }
 }

@@ -14,20 +14,7 @@ https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
 	 </rule>
 	 <rule ref="category/java/design.xml/ImmutableField" />
 	<rule ref="category/java/design.xml/UseUtilityClass">
-		<priority>1</priority>
-	</rule>
-	
-	<rule ref="category/java/codestyle.xml/ClassNamingConventions" />
-	<rule ref="category/java/errorprone.xml/BeanMembersShouldSerialize" >
-		<priority>2</priority>
-	</rule>
-	<rule ref="category/java/errorprone.xml/UseLocaleWithCaseConversions" />
-	<rule ref="category/java/documentation.xml/CommentRequired" >
-		<properties>
-			<property name="classCommentRequirement" value="Ignored" />
-			<property name="headerCommentRequirement" value="Ignored" />
-			<property name="fieldCommentRequirement" value="Ignored" />
-		</properties>
+	<priority>1</priority>
 	</rule>
 	
  

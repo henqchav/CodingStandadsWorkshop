@@ -22,7 +22,7 @@
  <plugin>
  <artifactId>maven-checkstyle-plugin</artifactId>
 <configuration>
- <configLocation>henqchav_checks.xml</configLocation>
+ <configLocation>henqchav_ruleset.xml</configLocation>
 </configuration>
 </plugin>
  </plugins>
